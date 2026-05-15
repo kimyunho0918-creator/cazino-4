@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VIP Luxury Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="stealth-light"></div>
+
+  <div id="entry-screen" class="screen active menu-panel">
+    <h1>VIP SLOT</h1>
+    <p>품격 있는 귀하를 환영합니다. 시작 포인트를 설정해주십시오.</p>
+    <input type="number" id="start-balance" value="1000" min="100" step="100" />
+    <button class="gold-btn" onclick="startGame()">ENTER THE ROOM</button>
+  </div>
+
+  <div id="game-screen" class="screen">
+    <div class="machine-wrap">
+      <button id="quit-btn" onclick="endGame(true)">
+        <span>CASH OUT</span><span style="font-size: 14px; color: #a38a41;">(정산 및 종료)</span>
+      </button>
+      
+      <div class="slot-machine-core">
+        <div class="info-panel">
+          <div class="info-box"><div>CURRENT BALANCE (PT)</div><span id="balance-display">0</span></div>
+          <div class="info-box"><div>BET AMOUNT (PT)</div><input type="number" id="bet-input" value="100" min="10" step="10" /></div>
+        </div>
+
+        <div class="reel-board">
+          <div class="reel-window"><ul id="reel1" class="reel-list"></ul></div>
+          <div class="reel-window"><ul id="reel2" class="reel-list"></ul></div>
+          <div class="reel-window"><ul id="reel3" class="reel-list"></ul></div>
+        </div>
+
+        <div id="message-board">준비 완료. 행운을 빕니다.</div>
+        <button id="spin-btn" class="gold-btn" onclick="spin()">PULL TO SPIN (Space)</button>
+      </div>
+
+      <div id="handle-container" class="handle-box" onclick="spin()">
+        <div class="handle-base"></div><div class="handle-stick"><div class="handle-knob"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <script> const MY_MACHINE_ID = "slot_1"; </script>
+  <script src="script.js"></script>
+</body>
+</html>

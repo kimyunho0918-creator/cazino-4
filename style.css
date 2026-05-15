@@ -1,0 +1,46 @@
+:root {
+  --bg-dark: #030303; --bg-light: #1c1a16;
+  --machine-bg: linear-gradient(145deg, #1a1815 0%, #0a0a0a 100%);
+  --gold-light: #fdf0a6; --gold: #d4af37; --gold-dark: #8b6914;
+  --gold-grad: linear-gradient(180deg, #fdf0a6 0%, #d4af37 45%, #997a00 100%);
+  --gold-border: linear-gradient(145deg, #d4af37, #554400);
+  --text: #ffffff; --reel-size: 180px; 
+}
+body { font-family: 'Georgia', serif; background: radial-gradient(circle at 50% 30%, #1c1a16 0%, #030303 80%); color: var(--text); display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; user-select: none; overflow: hidden; }
+.screen { display: none; }
+.screen.active { display: block; }
+.menu-panel { background: var(--machine-bg); padding: 50px; border-radius: 20px; text-align: center; width: 540px; position: relative; box-shadow: 0 30px 60px rgba(0,0,0,0.95), inset 0 1px 1px rgba(255,255,255,0.1); margin: 0 auto; }
+.menu-panel::before { content: ""; position: absolute; inset: -4px; border-radius: 24px; background: var(--gold-grad); z-index: -1; }
+.menu-panel h1 { margin-bottom: 12px; font-weight: 900; font-size: 44px; letter-spacing: 4px; background: var(--gold-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 5px 20px rgba(212, 175, 55, 0.2); }
+.menu-panel p { color: #888; font-family: sans-serif; font-size: 15px; margin-bottom: 35px; }
+input[type="number"], input[type="password"] { width: 80%; padding: 16px; font-size: 30px; text-align: center; margin-bottom: 30px; border-radius: 8px; border: 1px solid var(--gold-dark); background-color: #050505; color: var(--gold-light); outline: none; font-family: monospace; }
+button.gold-btn { background: var(--gold-grad); color: #111; border: none; padding: 20px 40px; font-size: 24px; font-weight: 900; border-radius: 8px; cursor: pointer; width: 100%; box-shadow: 0 8px 20px rgba(0,0,0,0.6); transition: all 0.15s ease; }
+button.gold-btn:active { transform: translateY(2px); box-shadow: 0 3px 6px rgba(0,0,0,0.6); }
+button.gold-btn:disabled { background: #333; color: #555; cursor: not-allowed; }
+.machine-wrap { display: flex; align-items: flex-end; gap: 25px; }
+#quit-btn { background: linear-gradient(180deg, #1f1b13, #0a0805); color: var(--gold-light); border: 2px solid var(--gold-dark); padding: 24px 18px; font-size: 20px; font-weight: bold; border-radius: 14px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 45px; }
+#quit-btn:hover { border-color: var(--gold); color: #fff; transform: translateY(-2px); }
+#quit-btn:disabled { background: #111; color: #555; border-color: #333; cursor: not-allowed; transform: none; }
+.slot-machine-core { background: var(--machine-bg); padding: 45px; border-radius: 24px; width: 800px; text-align: center; position: relative; box-shadow: 0 35px 70px rgba(0,0,0,0.95); }
+.slot-machine-core::before { content: ""; position: absolute; inset: -5px; border-radius: 29px; background: var(--gold-border); z-index: -1; }
+.info-panel { display: flex; justify-content: space-between; margin-bottom: 30px; }
+.info-box { background: linear-gradient(180deg, #0a0a0a, #000); padding: 18px; border-radius: 10px; border: 1px solid #3a2c00; width: 46%; }
+.info-box div { font-size: 13px; color: #a38a41; margin-bottom: 10px; font-weight: bold; font-family: sans-serif; }
+.info-box span, .info-box input { font-size: 36px; font-weight: bold; color: var(--gold-light); background: transparent; border: none; text-align: center; width: 100%; outline: none; font-family: monospace; }
+.reel-board { background: #080808; padding: 30px; border-radius: 14px; border: 1px solid #222; display: flex; justify-content: space-between; margin-bottom: 30px; position: relative; }
+.reel-board::after { content: ""; position: absolute; inset: 0; border: 3px solid var(--gold-dark); border-radius: 14px; pointer-events: none; opacity: 0.5; }
+.reel-window { width: 31.5%; height: var(--reel-size); overflow: hidden; background: linear-gradient(180deg, #cfc9bd, #fdfaf4 20%, #fdfaf4 80%, #cfc9bd); border-radius: 8px; position: relative; box-shadow: 0 0 0 4px #111, 0 0 0 6px var(--gold-dark), inset 0 10px 20px rgba(0,0,0,0.5); }
+.reel-window::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 40px; background: linear-gradient(180deg, rgba(0,0,0,0.6), transparent); z-index: 2; pointer-events: none; }
+.reel-window::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 40px; background: linear-gradient(0deg, rgba(0,0,0,0.6), transparent); z-index: 2; pointer-events: none; }
+.reel-list { list-style: none; margin: 0; padding: 0; height: 100%; display: flex; flex-direction: column; justify-content: center; }
+.symbol { height: var(--reel-size); display: flex; align-items: center; justify-content: center; font-size: 110px; color: #111; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.2)); }
+#message-board { background: #000; padding: 18px; border-radius: 8px; font-size: 18px; font-weight: bold; margin-bottom: 30px; border: 1px solid #332700; color: var(--gold-light); font-family: sans-serif; }
+.handle-box { width: 90px; height: 320px; position: relative; cursor: pointer; }
+.handle-base { width: 50px; height: 140px; background: linear-gradient(90deg, #111, #2a2a2a, #050505); border-radius: 0 12px 12px 0; position: absolute; left: 0; bottom: 0; }
+.handle-stick { width: 20px; height: 230px; background: linear-gradient(90deg, #554400, var(--gold-light), #4a3800); position: absolute; left: 15px; bottom: 120px; border-radius: 999px; transform-origin: bottom center; }
+.handle-knob { width: 70px; height: 70px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff 0%, var(--gold) 25%, #4a3600 80%); position: absolute; top: -45px; left: 50%; transform: translateX(-50%); }
+.pulling .handle-stick { animation: pullLever 0.5s cubic-bezier(0.25, 0.1, 0.25, 1); }
+@keyframes pullLever { 0%, 100% { transform: rotate(0deg); } 40% { transform: rotate(35deg); } 70% { transform: rotate(20deg); } }
+#stealth-light { position: fixed; bottom: 15px; right: 15px; width: 3px; height: 3px; border-radius: 50%; background-color: transparent; z-index: 9999; pointer-events: none; }
+.reel-list.spinning { animation: slotSpin 0.08s linear infinite; filter: blur(4px); }
+@keyframes slotSpin { 0% { transform: translateY(-60px); } 100% { transform: translateY(60px); } }
