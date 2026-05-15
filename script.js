@@ -1,5 +1,5 @@
 // 👇👇👇 여기에 부장님 노트북 IP 입력! 👇👇👇
-const SERVER_URL = "http://10.137.194.178:5000"; 
+const SERVER_URL = "http://10.137.196.172:5000"; 
 // 👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆
 
 const machineId = typeof MY_MACHINE_ID !== 'undefined' ? MY_MACHINE_ID : 'slot_4';
